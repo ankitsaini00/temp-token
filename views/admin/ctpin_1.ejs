@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center {
+            margin-top: 50%;
+            margin-bottom: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            border: 3px solid green;
+            padding: 20px;
+            width: 50%;
+            height: 50%;
+        }
+    </style>
+</head>
+<body>
+    <% products.forEach((e)=>{%>
+        <div class="center">
+            <table>
+                <tr>
+                    <td>Product</td>
+                    <% if(e.product=='1' ){%>
+                        <td>iphone </td>
+                        <%}else if(e.product=='2' ){%>
+                            <td>Watch</td>
+                            <%}else{%>
+                                <td>Airpods</td>
+                                <%}%>
+                </tr>
+                <tr>
+                    <td>CTPIN</td>
+                    <td><%= e.ctipin %></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <%= e.name %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>
+                        <%= e.city %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>
+                        <%= (e.price*e.quantity)-e.discount %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>
+                        <%= e.date %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    <%})%>
+</body>
+</html>

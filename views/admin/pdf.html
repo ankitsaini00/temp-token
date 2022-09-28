@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>INVOICE GENERTOR</title>
+    <style>
+        #navbar {
+            width: 100%;
+            /* top: 30px; */
+            z-index: 10;
+        }
+        
+        #navbar nav {
+            background-color: #5a1127;
+            /* background-image: linear-gradient(to right, #378e9f, #2975a5, #4d5aab, #2c64b3); */
+            box-shadow: 1px 1px 1px 1px rgba(200, 200, 200, 1);
+            height: 93px;
+            width: 100%;
+        }
+        
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        main,
+        menu,
+        nav,
+        section,
+        summary {
+            display: block;
+        }
+        
+        .container-fluid {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        
+        .col-md-2 {
+            width: 16.66666667%;
+            float: left;
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        
+        .glass_1 {
+            padding-top: 40px;
+        }
+        
+        img {
+            vertical-align: middle;
+        }
+        
+        img {
+            vertical-align: middle;
+        }
+        
+        img {
+            border: 0;
+        }
+        
+        .glass_2 {
+            text-align: center;
+        }
+        
+        .col-md-1,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9 {
+            float: left;
+        }
+        
+        .col-lg-1,
+        .col-lg-10,
+        .col-lg-11,
+        .col-lg-12,
+        .col-lg-2,
+        .col-lg-3,
+        .col-lg-4,
+        .col-lg-5,
+        .col-lg-6,
+        .col-lg-7,
+        .col-lg-8,
+        .col-lg-9,
+        .col-md-1,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-sm-1,
+        .col-sm-10,
+        .col-sm-11,
+        .col-sm-12,
+        .col-sm-2,
+        .col-sm-3,
+        .col-sm-4,
+        .col-sm-5,
+        .col-sm-6,
+        .col-sm-7,
+        .col-sm-8,
+        .col-sm-9,
+        .col-xs-1,
+        .col-xs-10,
+        .col-xs-11,
+        .col-xs-12,
+        .col-xs-2,
+        .col-xs-3,
+        .col-xs-4,
+        .col-xs-5,
+        .col-xs-6,
+        .col-xs-7,
+        .col-xs-8,
+        .col-xs-9 {
+            position: relative;
+            min-height: 1px;
+        }
+        
+        .col-md-8 {
+            width: 66.66666667%;
+        }
+        
+        .glass_4 {
+            color: rgb(255, 255, 255);
+            font-weight: bolder;
+            padding-top: 20px;
+        }
+        
+        p {
+            margin: 0 0 10px;
+        }
+        
+        .glass_3 {
+            margin-top: -10px;
+            font-size: 38px;
+            color: white;
+            font-weight: bolder;
+            font-family: 'PT Serif', serif;
+        }
+        
+        .glass_5 {
+            margin-top: -5px;
+            font-size: 10px;
+            color: rgb(197, 197, 197);
+            font-weight: bolder;
+            letter-spacing: 2px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .glass_6 {
+            font-size: 10px;
+            color: rgb(197, 197, 197);
+            margin-top: -5px;
+        }
+        
+        .btn-group-vertical>.btn-group:after,
+        .btn-toolbar:after,
+        .clearfix:after,
+        .container-fluid:after,
+        .container:after,
+        .dl-horizontal dd:after,
+        .form-horizontal .form-group:after,
+        .modal-footer:after,
+        .modal-header:after,
+        .nav:after,
+        .navbar-collapse:after,
+        .navbar-header:after,
+        .navbar:after,
+        .pager:after,
+        .panel-body:after,
+        .row:after {
+            clear: both;
+        }
+        
+        .btn-group-vertical>.btn-group:after,
+        .btn-group-vertical>.btn-group:before,
+        .btn-toolbar:after,
+        .btn-toolbar:before,
+        .clearfix:after,
+        .clearfix:before,
+        .container-fluid:after,
+        .container-fluid:before,
+        .container:after,
+        .container:before,
+        .dl-horizontal dd:after,
+        .dl-horizontal dd:before,
+        .form-horizontal .form-group:after,
+        .form-horizontal .form-group:before,
+        .modal-footer:after,
+        .modal-footer:before,
+        .modal-header:after,
+        .modal-header:before,
+        .nav:after,
+        .nav:before,
+        .navbar-collapse:after,
+        .navbar-collapse:before,
+        .navbar-header:after,
+        .navbar-header:before,
+        .navbar:after,
+        .navbar:before,
+        .pager:after,
+        .pager:before,
+        .panel-body:after,
+        .panel-body:before,
+        .row:after,
+        .row:before {
+            display: table;
+            content: " ";
+        }
+        
+         :after,
+         :before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        .row {
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+        
+        .col-md-6 {
+            width: 50%;
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        
+        body {
+            font-family: 'Nunito', 'Lato', sans-serif;
+            scrollbar-face-color: #000000;
+            scrollbar-shadow-color: #FFFFFF;
+            scrollbar-highlight-color: #FFFFFF;
+            scrollbar-3dlight-color: #FFFFFF;
+            scrollbar-darkshadow-color: #FFFFFF;
+            scrollbar-track-color: #FFFFFF;
+            scrollbar-arrow-color: #FFFFFF;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Nunito', 'Lato', sans-serif;
+            line-height: unset;
+            position: relative;
+            background: linear-gradient(rgba(250, 250, 250, 0.4), rgb(250, 250, 250, 0.4)), url(/images/doodle.jpg);
+            background-repeat: repeat;
+            background-size: contain;
+        }
+        
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: rgb(255, 255, 255);
+        }
+        
+        body {
+            margin: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        user agent stylesheet body {
+            display: block;
+            margin: 8px;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Nunito', 'Lato', sans-serif;
+            line-height: unset;
+            position: relative;
+            background: linear-gradient(rgba(250, 250, 250, 0.4), rgb(250, 250, 250, 0.4)), url('/images/doodle.jpg');
+            background-repeat: repeat;
+            background-size: contain;
+        }
+        
+        body {
+            scrollbar-face-color: #000000;
+            scrollbar-shadow-color: #FFFFFF;
+            scrollbar-highlight-color: #FFFFFF;
+            scrollbar-3dlight-color: #FFFFFF;
+            scrollbar-darkshadow-color: #FFFFFF;
+            scrollbar-track-color: #FFFFFF;
+            scrollbar-arrow-color: #FFFFFF;
+        }
+        /* Let's get this party started */
+        
+        body::-webkit-scrollbar {
+            width: 5px;
+        }
+        /* Track */
+        
+        body::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+        /* Handle */
+        
+        body::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: #000000;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+        }
+        
+        .list {
+            scrollbar-face-color: #000000;
+            scrollbar-shadow-color: #FFFFFF;
+            scrollbar-highlight-color: #FFFFFF;
+            scrollbar-3dlight-color: #FFFFFF;
+            scrollbar-darkshadow-color: #FFFFFF;
+            scrollbar-track-color: #FFFFFF;
+            scrollbar-arrow-color: #FFFFFF;
+        }
+        /* Let's get this party started */
+        
+        .list::-webkit-scrollbar {
+            width: 5px;
+        }
+        /* Track */
+        
+        .list::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+        /* Handle */
+        
+        .list::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: #3e8231;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+        }
+        
+        h3,
+        h4,
+        h5,
+        h3 {
+            font-weight: unset;
+            line-height: unset;
+        }
+        
+        a {
+            text-decoration: none;
+            cursor: pointer;
+            color: unset;
+        }
+        
+        a:hover {
+            color: unset;
+        }
+        
+        .customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        table {
+            background-color: transparent;
+        }
+        
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        user agent stylesheet table {
+            display: table;
+            border-collapse: separate;
+            border-spacing: 2px;
+            border-color: grey;
+        }
+        
+        .btn11 {
+            font-weight: bold;
+            width: 307px;
+            /* margin: 0 35px 20px ; */
+            height: 41px;
+            padding: 6px 15px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            background: #378e9f;
+            color: white;
+            font-size: 15px;
+        }
+        
+        .ref {
+            font-size: 28px;
+        }
+        
+        .ref1 {
+            font-size: 20px;
+        }
+        
+        .customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .customers td,
+        .customers th {
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        
+        .customers tr:nth-child(even) {
+            background-color: #133f4b14;
+        }
+        
+        .customers tr:hover {
+            background-color: #ddd;
+        }
+        
+        .customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+        }
+        
+        .customers1 {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .customers1 td,
+        .customers1 th {
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        
+        .customers1 tr:nth-child(even) {
+            background-color: #00000014;
+        }
+        
+        .customers1 tr:hover {
+            background-color: #ddd;
+        }
+        
+        .customers1 th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+        }
+        
+        .customers2 {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: -20px;
+            text-align: center;
+        }
+        
+        .customers2 td,
+        .customers2 th {
+            text-align: center;
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        
+        .customers2 tr:nth-child(even) {
+            background-color: #00000014;
+        }
+        
+        .customers2 tr:hover {
+            background-color: #ddd;
+        }
+        
+        .customers2 th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+        }
+        
+        .price_ {
+            font-size: 20px;
+            font-weight: 900;
+        }
+        
+        .price_1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 11px;
+            color: rgba(0, 0, 0, 0.753);
+            font-weight: 600;
+            padding: 4px 5px;
+        }
+        
+        .price_11 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 15px;
+            background: #00000050;
+            border-bottom: 2px solid white;
+            color: rgba(0, 0, 0, 0.753);
+            font-weight: 600;
+            padding: 8px 8px 0px 8px;
+        }
+        
+        .price_111 {
+            display: flex;
+            flex-direction: row;
+            font-size: 12px;
+            background: #00000050;
+            border-bottom: 2px solid white;
+            color: rgba(0, 0, 0, 0.753);
+            font-weight: bolder;
+            padding: 8px 6px 0px 40px;
+        }
+        
+        .price_113 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            font-size: 15px;
+            background: #000000;
+            border-bottom: 2px solid white;
+            color: white;
+            font-weight: 900;
+            margin-top: -40px;
+            padding: 10px 8px 10px 8px;
+        }
+        
+        .price_3 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 15px;
+            color: black;
+            background: #00000050;
+            font-weight: 600;
+            padding: 10px 5px 0px 5px;
+        }
+        
+        .price_312 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 11px;
+            color: black;
+            height: 35px;
+            background: #00000050;
+            font-weight: 600;
+            padding: 8px 5px 5px 5px;
+        }
+        
+        .price_31 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 14px;
+            color: black;
+            background: #00000050;
+            font-weight: 600;
+            padding: 5px 10px 0px 10px;
+            border-bottom: 2px solid white;
+        }
+        
+        .price_311 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 10px;
+            color: black;
+            background: white;
+            font-weight: 600;
+            padding: 11px 10px 0px 10px;
+            border-bottom: 2px solid white;
+        }
+        
+        .right {
+            float: right;
+        }
+        
+        .pp1 {
+            padding-top: 5px;
+        }
+        
+        .pp2 {
+            justify-content: flex-end;
+        }
+        
+        .price_4 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 11px;
+            color: black;
+            background: #00000011;
+            font-weight: 600;
+            padding: 10px 5px 0px 5px;
+        }
+        
+        .box11 {
+            padding: 15px;
+            box-shadow: 2px 2px 9px black;
+            border-radius: 10px;
+        }
+        
+        .box112 {
+            padding: 15px;
+            border: 1px solid black;
+        }
+        
+        .box111 {
+            padding: 15px;
+            border-radius: 10px;
+            position: fixed;
+        }
+        
+        .float1 {
+            z-index: 11111111111111;
+            position: fixed;
+            width: 170px;
+            height: 47px;
+            bottom: 33px;
+            left: 36px;
+            background-color: #000000;
+            color: #FFF;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+            font-size: 19px;
+            font-weight: 900;
+            padding-top: 9px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        
+        .float2 {
+            z-index: 11111111111111;
+            position: fixed;
+            width: 170px;
+            height: 47px;
+            bottom: 83px;
+            left: 36px;
+            background-color: #000000;
+            color: #FFF;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+            font-size: 19px;
+            font-weight: 900;
+            padding-top: 9px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        
+        .ico {
+            font-size: 17px;
+        }
+        
+        #print-button {
+            display: none;
+        }
+        
+        .flex1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-top: -45px;
+        }
+        
+        .price_2 {
+            font-weight: bolder;
+            font-family: 'PT Serif', serif;
+        }
+        
+        .flex1 button:hover {
+            background: #0000002a;
+            border-radius: 2px;
+            border-bottom: 3px solid #000000;
+        }
+        
+        .flex1 button.active {
+            color: white;
+            background: #000000;
+            border-radius: 2px;
+            border-bottom: 3px solid #000000;
+        }
+        
+        .flex1 button {
+            background-color: white;
+            color: rgba(78, 78, 78, 0.714);
+            width: 15%;
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: -2px !important;
+            border-bottom: 2px solid #000000;
+        }
+        
+        .box_2 {
+            margin: 10px 30px;
+            background: white;
+            box-shadow: 5px 5px 5px black;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .box_2:hover {
+            margin: 10px 30px;
+            background: white;
+            box-shadow: 5px 5px 5px white;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .flex2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        
+        .his_1 {
+            font-weight: 600;
+        }
+        
+        .his_2 {
+            color: #133f4b;
+            font-size: 28px;
+            font-weight: 900;
+        }
+        
+        .his_3 {
+            padding-top: 10px;
+        }
+        
+        .status {
+            position: absolute;
+            width: auto;
+            border-radius: 5px;
+            color: white;
+            background-color: rgb(0, 182, 0);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 5px 10px;
+            margin: 5px;
+        }
+        
+        .status1 {
+            position: absolute;
+            width: auto;
+            border-radius: 5px;
+            color: white;
+            background-color: rgb(0, 179, 255);
+            ;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 5px 10px;
+            margin: 5px;
+        }
+        
+        .his_5:hover {
+            text-decoration: none;
+        }
+        
+        .glass_1 {
+            padding-top: 40px;
+        }
+        
+        .glass_2 {
+            text-align: center;
+        }
+        
+        .glass_4 {
+            color: rgb(181, 181, 181);
+            font-weight: bolder;
+            padding-top: 20px;
+        }
+        
+        .glass_7 {
+            color: #000000;
+            background: white;
+            font-size: 12px;
+            font-weight: bolder;
+            text-align: center;
+            /* padding: 10px 9px 10px 56px; */
+            margin-left: -9px;
+            margin-right: -15px;
+            padding: 10px 20px 10px 40px;
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+            margin-top: 50px;
+        }
+        
+        .glass_8 {
+            color: white;
+            font-size: 12px;
+            font-weight: 100;
+            padding-top: 20px;
+            float: right;
+        }
+        
+        .glass_9 {
+            margin-top: -20px;
+            padding-left: 10px;
+            font-size: 12px;
+            float: right;
+            color: white;
+        }
+        
+        .glass_10 {
+            margin-top: -0px;
+            padding-left: -10px;
+            font-size: 11px;
+            float: right;
+            color: white;
+            font-weight: bolder;
+        }
+        
+        thead {
+            display: table-header-group;
+            vertical-align: middle;
+            border-color: inherit;
+        }
+        
+        tr {
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+        }
+        
+        .table>caption+thead>tr:first-child>td,
+        .table>caption+thead>tr:first-child>th,
+        .table>colgroup+thead>tr:first-child>td,
+        .table>colgroup+thead>tr:first-child>th,
+        .table>thead:first-child>tr:first-child>td,
+        .table>thead:first-child>tr:first-child>th {
+            border-top: 0;
+        }
+        
+        .table>thead>tr>th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .table>tbody>tr>td,
+        .table>tbody>tr>th,
+        .table>tfoot>tr>td,
+        .table>tfoot>tr>th,
+        .table>thead>tr>td,
+        .table>thead>tr>th {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        
+        th {
+            text-align: left;
+        }
+        
+        td,
+        th {
+            text-align: center;
+            padding: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        th {
+            display: table-cell;
+            vertical-align: inherit;
+            font-weight: bold;
+            text-align: -internal-center;
+        }
+        
+        tbody {
+            text-align: center;
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
+        }
+        
+        .table>tbody>tr>td,
+        .table>tbody>tr>th,
+        .table>tfoot>tr>td,
+        .table>tfoot>tr>th,
+        .table>thead>tr>td,
+        .table>thead>tr>th {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border-top: 1px solid #ddd;
+        }
+        
+        td,
+        th {
+            padding: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        td {
+            display: table-cell;
+            vertical-align: inherit;
+        }
+        
+        .col-md-4 {
+            width: 33.33333333%;
+        }
+        
+        .col-md-1,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9 {
+            float: left;
+        }
+        
+        .col-lg-1,
+        .col-lg-10,
+        .col-lg-11,
+        .col-lg-12,
+        .col-lg-2,
+        .col-lg-3,
+        .col-lg-4,
+        .col-lg-5,
+        .col-lg-6,
+        .col-lg-7,
+        .col-lg-8,
+        .col-lg-9,
+        .col-md-1,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-sm-1,
+        .col-sm-10,
+        .col-sm-11,
+        .col-sm-12,
+        .col-sm-2,
+        .col-sm-3,
+        .col-sm-4,
+        .col-sm-5,
+        .col-sm-6,
+        .col-sm-7,
+        .col-sm-8,
+        .col-sm-9,
+        .col-xs-1,
+        .col-xs-10,
+        .col-xs-11,
+        .col-xs-12,
+        .col-xs-2,
+        .col-xs-3,
+        .col-xs-4,
+        .col-xs-5,
+        .col-xs-6,
+        .col-xs-7,
+        .col-xs-8,
+        .col-xs-9 {
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        
+        div {
+            display: block;
+        }
+        
+        .box112 {
+            margin-top: 7px;
+            padding: 15px;
+            border: 1px solid black;
+        }
+        
+        .pdf_1 {
+            font-size: 10px;
+            font-weight: 900;
+        }
+        
+        .pd_2 {
+            font-weight: 600;
+            font-size: 11px;
+            color: white;
+        }
+        
+        .glass_01 {
+            font-size: 17px;
+            color: white;
+            font-weight: 600;
+            margin-top: 50px;
+        }
+        
+        .col-md-10 {
+            width: 83.33%;
+        }
+        
+        .glass_02 {
+            font-size: 14px;
+            color: rgb(224, 224, 224);
+        }
+        
+        .glass_03 {
+            font-size: 12px;
+            color: rgb(224, 224, 224);
+            margin-top: -3%;
+        }
+        
+        .glass_04 {
+            font-size: 12px;
+            color: rgb(224, 224, 224);
+        }
+        
+        .glass_001 {
+            font-size: 12px;
+            color: black;
+        }
+        
+        .glass_002 {
+            margin-top: -10px;
+            font-size: 12px;
+            font-weight: 800;
+            color: black;
+        }
+    </style>
+</head>
+<!-- <body style="background-image: url('https://i.ibb.co/QJnJBq7/Screenshot-2020-09-06-at-2-35-39-PM-1.jpg'); background-size: contain;background-repeat: no-repeat;"> -->
+
+<body style="background-image: url('http://marvansmobile.com/back.jpg'); background-size: contain;background-repeat: no-repeat;">
+
+
+    <!-- <a href="index.html" class="float2 dropbtnLoginc">
+       <p>
+          Pending Paid
+       </p>
+       </a>
+    <a href="index.html" class="float1 dropbtnLoginc">
+        <p class="ico"> <i class="fas fa-home"></i> &nbsp; </p>
+         <p>
+             New Bill
+ 
+         </p>
+         </a> -->
+    <!-- navbar -->
+    <div id="navbar">
+        <nav style="height: 240px; background-color: #000000;">
+            <div class="container-fluid" style="display: flex; flex-direction: row;">
+                <div class="col-md-4" style="padding-left: 10px;">
+                    <p class="glass_01">WAHID</p>
+                    <p class="glass_02"> &nbsp; +91 9998888097</p>
+                    <p class="glass_03"> &nbsp; +91 9033677211</p>
+                    <p class="glass_04"><b>Shipr Complex, Nr new alka restaurant, manisha cross, Old Padra road, Vadodara <br>
+                -390020 </b></p>
+                </div>
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-4" style="padding-right: 0;">
+                    <p class="glass_7">ORIGINAL COPY</p>
+                    <p class="glass_8">State &nbsp; : &nbsp; Gujarat</p>
+                    <p class="glass_9"><br>State Code&nbsp; : &nbsp;24</p>
+                    <br><br><br><br>
+                    <p class="glass_10"><br>GST(ARN) : AA240321040426S</p>
+
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+
+
+    <br><br>
+    <div class="container-fluid" style="padding: 0px 50px;font-size: 14px !important;">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="price_111">
+                    <p> &nbsp; &nbsp; &nbsp; Name &nbsp;&nbsp; &nbsp; : &nbsp; &nbsp; </p>
+                    <p> <span class="price_2"> <%=bill.customer.name%></span></p>
+                </div>
+                <div class="price_111">
+                    <p> &nbsp; &nbsp; &nbsp; Mobile &nbsp; &nbsp; : &nbsp; &nbsp; </p>
+                    <p> <span class="price_2"><%=bill.customer.mobile%> </span></p>
+                </div>
+            </div>
+            <%function convertDate(inputFormat) {
+            inputFormat.setHours(inputFormat.getHours()+5);
+            inputFormat.setMinutes(inputFormat.getMinutes()+30);
+            function pad(s) { return (s < 10) ? '0' + s : s; }
+            var d = new Date(inputFormat)
+            return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('-')
+          }%>
+                <div class="col-md-6">
+                    <div class="price_111">
+                        <p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Date &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : &nbsp; &nbsp; </p>
+                        <p><span class="price_2"><%=convertDate(bill.order_date)%> </span></p>
+                    </div>
+                    <div class="price_111">
+                        <p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Invoice No. &nbsp;&nbsp;&nbsp;&nbsp; : &nbsp; &nbsp; </p>
+                        <p><span class="price_2"><%=bill.billno%> </span></p>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container-fluid" style="padding: 0px 50px;font-size: 10px !important;">
+        <div class="col-md-8" style="padding-left: 0px;">
+            <table class="table data-table customers">
+                <thead>
+                    <th width="12%" style="text-align: center;">S. No.</th>
+                    <th width="40%">Description</th>
+                    <th width="22%">Qty</th>
+                    <th width="22%">Amount (full)</th>
+                </thead>
+                <tbody>
+                    <% if(bill.products1.length!=0){
+                    var i=1;
+                    bill.products1.forEach((item)=>{ %>
+                        <tr>
+                            <td>
+                                <%=i++%>
+                            </td>
+                            <td>
+                                <%=item.name%>,
+                                    <%=item.desc%><br>
+                                        <%=item.details%>
+                            </td>
+                            <td>
+                                <%=item.quantity%>
+                            </td>
+                            <td>
+                                <%=item.price*item.quantity%>
+                            </td>
+                        </tr>
+                        <% }) 
+               } %>
+
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div class="col-md-4 box112">
+            <p class="price_113">Price Details</p>
+            <div class="price_1">
+                <p>Subtotal </p>
+                <p>&#8377; <span class="price_2"><%=bill.total%> </span></p>
+            </div>
+            <div class="price_1">
+                <p>Discount <span>(%)</span> </p>
+                <p> <span class="price_2"><%=bill.discount%>%  </span></p>
+            </div>
+            <div class="price_1">
+                <p>you Save </p>
+                <p>&#8377; <span class="price_2"><%=(bill.total*0.01*bill.discount).toFixed(2)%> </span></p>
+            </div>
+            <div class="price_312">
+                <p>GROSS TOTAL </p>
+                <p>&#8377; <span class="price_2"><%=bill.total_paid%> </span></p>
+            </div>
+            <div class="price_4">
+                <p class="pp1">Payment Mode </p>
+                <p class="pp2">
+                    <%=bill.payment_type%>
+                </p>
+            </div>
+            <div class="price_4">
+                <p class="pp1">Amount Paid </p>
+                <p>&#8377; <span class="price_2"><%=bill.advance%> </span></p>
+            </div>
+            <div class="price_4">
+                <p class="pp1">Balance </p>
+                <p>&#8377; <span class="price_2"><%=bill.total_paid-bill.advance%> </span></p>
+            </div>
+
+            <br>
+        </div>
+
+
+    </div><br><br>
+
+
+
+    <div class="container-fluid" style="margin-top: 50px;padding: 0px 60px;font-size: 16px !important;">
+    </div>
+    <br><br>
+    <div class="container" style="border-top: 3px solid #000000;margin: 8px 60px 0px 60px;">
+    </div>
+    <%
+var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
+var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
+
+function inWords (num) {
+    if ((num = num.toString()).length > 9) return 'overflow';
+    n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+    if (!n) return; var str = '';
+    str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+    str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+    str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+    str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+    str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) : '';
+    return str;
+}
+%>
+        <div class="container-fluid" style="padding: 0px 60px;">
+            <div class="col-md-10" style="background: #0000001a; padding: 10px 0px 0px 10px;">
+                <p class="glass_001">Amount (in words)</p>
+                <p class="pdf_1" style="margin-top: -0.5%;">
+                    <%=inWords(bill.total_paid)%> Only</p>
+                <!-- <p class="pdf_1" style="margin-top: -0.5%;">Seventy Seven Thousand Nine Hunderd and Ninety Nine Only</p> -->
+            </div>
+            <%
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        %>
+                <div class="col-md-2" style="text-align: right;background: #0000001a; padding: 10px 10px 0px 10px;">
+                    <p class="glass_001">Total Amount</p>
+                    <p class="pdf_1" style="margin-top: -3%;">Rs. <span><%=numberWithCommas(bill.total_paid)%></span></p>
+                </div>
+        </div>
+
+        <div class="container" style="border-top: 3px solid #000000;margin: 0px 60px 20px 60px;">
+        </div>
+        <div class="container-fluid" style="padding: 0px 60px;font-size: 12px !important;">
+
+            <div class="col-md-6">
+                <p class="pdf_1">
+                    Terms & Conditions
+                </p>
+                <ul style="padding-inline-start: 20px;font-size: 11.55px;">
+                    <li>All service and support provided by Authorised Apple store.</li>
+                    <li>Marvans warranty covers hardware malfunction and issues. Battery health is covered under warranty only in case of “Mandatory Service Required” message. No warranty on physical & water damage.</li>
+                    <li>Return and repair services will be closed on every Sunday</li>
+                </ul>
+            </div>
+
+            <div class="col-md-6" style="text-align: right; padding-right: 0;">
+                <p class="pdf_1">
+                    For Marvans
+                </p>
+                <br><br><br><br>
+                <br><br>
+                <p class="pdf_1">
+                    Authorized Signatory
+                </p>
+            </div>
+        </div>
+        <div class="container" style="border-top: 3px solid #000000;margin: 10px 60px;">
+        </div>
+
+        <footer style="background: #000000; display: flex;
+flex-direction: row;
+justify-content: space-between;
+padding: 22px 0px 3px 0px;
+margin-top: 23px;">
+            <br><br>
+            <p class="pd_2">
+                Timing : 11:00 AM TO 07:30 PM (MON - FRI) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp;
+            </p>
+            <p class="pd_2">
+                12:00 AM TO 03:00 PM (SUNDAY)
+            </p>
+            <br><br>
+        </footer>
+
+        <!-- Footer -->
+        <!-----------=========================================== change footer  =====================================================================================-->
+        <!---------======================== POPUP 1  ========================================-->
+
+
+        <!---------======================== POPUP 1  ========================================-->
+
+        <!-----------=========================================== change footer  =====================================================================================-->
+        <!-----------=========================================== change footer  =====================================================================================-->
+        <!-----------=========================================== change footer  =====================================================================================-->
+
+        <!-- <div class="footerOuter">
+        <div id="footer">
+            <div class="logo">
+               <img src="img/logo.png" class="logo_bot">
+            </div>
+            <div class="links">
+                <h3>Links<hr class="hr_ft"></h3>
+                <a data-toggle="modal" data-t&#8377;arget="#exampleModalabout">About Us</a>
+                <a href=""></a>
+                <a href="">Our Team</a>
+                <a href="">Contact Us</a>
+                <a href="">Terms and Conditions</a>
+                <a data-toggle="modal" data-target="#exampleModalprivacy">Policy</a>
+            </div>
+            <div class="address">
+                <h3>Contact<hr class="hr_ft"></h3>
+                <h4><i class="fas fa-envelope addIcon"></i>support.exam@smvdu.ac.in</h3>
+                <h4><i class="fas fa-phone-alt addIcon"></i>+917889839939</h3>
+                <h4><i class="fas fa-phone-alt addIcon"></i>+919858790866</h3>
+                    <div class="social-info">
+                        <a href="https://m.facebook.com/happinessdeal/?ref=bookmarks" target="blank_" ><i class="fab fa-facebook-square social"></i></a>
+                        <a href="https://twitter.com/home" target="blank_" ><i class="fab fa-twitter-square social"></i></a>
+                        <a href="https://www.instagram.com/happinessdeal/" target="blank_" ><i class="fab fa-instagram social"></i></a>
+                        </div>
+            </div>
+            <div class="social-infoUpper bd_lft">
+                <div class="pd1">
+                    <h2 class="ft_hd">Coming soon <hr class="hr_"></h2>
+                    <div class="row" style="text-align: center;">
+                   <div class="col-md-6" style="text-align: center">
+                     <img src="img/android.png" class="app_">
+                     <p class="txt_app">Google Play</p>
+                   </div>
+                   <div class="col-md-6" style="text-align: center;">
+                      <img src="img/ios.png" class="app_">
+                      <p class="txt_app">App Store</p>
+                    </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="container-fluid" style="background: white; height: 60px;">
+            <div class="copywrite">
+                <p><i class="fas fa-copyright copywriteIcon"></i> Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <span> Dr. Sonika Gupta </span> || Designed and developed by <span><a href="https://www.stickmanservices.com/"> Stickman Services </a></span></p>
+            </div>
+        </div>
+    </div> -->
+        <!-----------=========================================== change footer  =====================================================================================-->
+        <!-----------=========================================== change footer  =====================================================================================-->
+        <!-----------=========================================== change footer  =====================================================================================-->
+        <!-----------=========================================== change footer  =====================================================================================-->
+
+        <!-- Custom js -->
+
+        <!--End of Tawk.to Script-->
+</body>
+
+</html>

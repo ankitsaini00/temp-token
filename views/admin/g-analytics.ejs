@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from designreset.com/cork/ltr/demo4/table_dt_basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Jul 2020 07:23:39 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>MARVANS ADMIN </title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="/plugins/table/datatable/datatables.css">
+    <link rel="stylesheet" type="text/css" href="/plugins/table/datatable/dt-global_style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- END PAGE LEVEL STYLES -->
+    <style>
+        .flash,
+        .flash2 {
+            background-color: rgb(236, 0, 0);
+            border-radius: 5px;
+            padding: 20px 30px;
+            left: 30%;
+            right: 30%;
+            position: fixed;
+            top: 3px;
+            z-index: 15;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .flash .close1,
+        .flash2 .close1 {
+            float: right;
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .wrapper {
+        width: 500px;
+        height: 500px;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .innerflash {
+            display: flex;
+            align-items: center;
+        }
+
+        .flash .i,
+        .flash2 .i {
+            font-size: 2rem;
+            color: white;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .flash2 {
+            background-color: rgb(0, 172, 0);
+        }
+
+        @media screen and (max-width: 900px) {
+
+            .flash,
+            .flash2 {
+                font-size: 0.9rem;
+                padding: 12px 25px;
+                margin: 3px;
+                left: 0;
+                right: 0;
+            }
+
+            .flash .i,
+            .flash2 .i {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!--  BEGIN NAVBAR  -->
+    <div class="header-container fixed-top">
+        <header class="header navbar navbar-expand-sm">
+            <%if(success&&success.length>0){%>
+                <div class="flash2">
+                    <div class="innerflash">
+                        <i class="fas fa-check-double i"></i>
+                        <%=success%>
+                    </div>
+                </div>
+            <%}else if(error&&error.length>0){%>
+                <div class="flash blink">
+                    <div class="innerflash">
+                        <i class="fas fa-times i"></i>
+                        <%=error%>
+                    </div>
+                </div>
+            <%}%>
+            <ul class="navbar-item theme-brand flex-row  text-center">
+                <li class="nav-item theme-logo">
+                    <a href="">
+                        <img src="/assets/img/MAR.png" class="navbar-logo" alt="logo">
+                    </a>
+                </li>
+                <li class="nav-item theme-text">
+                     
+                </li>
+            </ul>
+
+           
+
+            <ul class="navbar-item flex-row ml-md-auto">
+
+               
+
+               
+
+                <li class="nav-item dropdown user-profile-dropdown">
+                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <img src="/assets/img/profile-16.jpg" alt="avatar">
+                    </a>
+                    <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
+                        <div class="">
+                            <!-- <div class="dropdown-item">
+                                <a class="" href="auth_lockscreen.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Lock Screen</a>
+                            </div> -->
+                            <div class="dropdown-item">
+                                <a class="" href="/logout"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Sign Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </header>
+    </div>
+    <!--  END NAVBAR  -->
+
+    <!--  BEGIN NAVBAR  -->
+    <div class="sub-header-container">
+        <header class="header navbar navbar-expand-sm">
+            <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></a>
+
+            <ul class="navbar-nav flex-row">
+                <li>
+                    <div class="page-header">
+
+                        <nav class="breadcrumb-one" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" aria-current="page"><span>All Categories</span></li>
+
+                            </ol>
+                        </nav>
+
+                    </div>
+                </li>
+            </ul>
+        </header>
+    </div>
+    <!--  END NAVBAR  -->
+
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
+
+        <!--  BEGIN SIDEBAR  -->
+        <div class="sidebar-wrapper sidebar-theme">
+            
+            <nav id="sidebar">
+                <div class="shadow-bottom"></div>
+    
+               
+                <ul class="list-unstyled menu-categories" id="accordionExample">
+                    <li class="menu">
+                        <a href="/my-dash" aria-expanded="false" data-active="true" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
+                                <span>My Dashboard</span>
+                            </div>
+                        </a>
+                    </li>
+    
+                    <li class="menu">
+                        <a href="#dashboard" data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-cpu">
+                                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                                    <rect x="9" y="9" width="6" height="6"></rect>
+                                    <line x1="9" y1="1" x2="9" y2="4"></line>
+                                    <line x1="15" y1="1" x2="15" y2="4"></line>
+                                    <line x1="9" y1="20" x2="9" y2="23"></line>
+                                    <line x1="15" y1="20" x2="15" y2="23"></line>
+                                    <line x1="20" y1="9" x2="23" y2="9"></line>
+                                    <line x1="20" y1="14" x2="23" y2="14"></line>
+                                    <line x1="1" y1="9" x2="4" y2="9"></line>
+                                    <line x1="1" y1="14" x2="4" y2="14"></line>
+                                </svg>
+                                <span>Products</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-chevron-right">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="dashboard" data-parent="#accordionExample">
+                            <li>
+                                <a href="/products/iphone"> iPhone </a>
+                            </li>
+                            <li>
+                                <a href="/products/iwatch"> Watch </a>
+                            </li>
+                            <li>
+                                <a href="/products/ipod"> AirPods </a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li class="menu">
+                        <a href="#app" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-layers">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                                <span>Orders</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-chevron-right">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="app" data-parent="#accordionExample">
+                            <li>
+                                <a href="/orders/new"> New Orders </a>
+                            </li>
+                            <li>
+                                <a href="/orders/processing"> Processing </a>
+                            </li>
+                            <li>
+                                <a href="/orders/delivered"> Delivered </a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li class="menu">
+                        <a href="#components" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-clipboard">
+                                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2">
+                                    </path>
+                                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                                </svg>
+                                <span>Enquiry/Repair</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-chevron-right">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="components" data-parent="#accordionExample">
+                            <li >
+                                <a href="/query/unresolved"> Pending </a>
+                            </li>
+                            <li>
+                                <a href="/query/resolved"> Resolved  </a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li class="menu">
+                        <a href="/pincodes" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-map">
+                                    <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                                    <line x1="8" y1="2" x2="8" y2="18"></line>
+                                    <line x1="16" y1="6" x2="16" y2="22"></line>
+                                </svg>
+                                <span>Pin Codes</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="menu">
+                        <a href="/reviews" data-active="false" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                                <span>Reviews</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="menu">
+                        <a href="/promo" data-active="false" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                                <span>Promo Codes</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="menu">
+                        <a href="/dashboard/popup" aria-expanded="false" data-active="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                                <span>Popup Image</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="menu">
+                        <a href="/states" data-active="false" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                                <span>State Codes</span>
+                            </div>
+                        </a>
+                    </li>
+    
+                    <li class="menu">
+                        <a href="/inventory/special/discount" data-active="false" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                                <span>Special Product</span>
+                            </div>
+                        </a>
+                    </li>
+    
+                    <li class="menu">
+                        <a href="/dashboard/special/" data-active="false" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                                <span>Special PDT Image</span>
+                            </div>
+                        </a>
+                    </li>
+                    
+                    <li class="menu">
+                        <a href="https://invoice.marvansmobile.com" target="_blank" aria-expanded="false" data-active="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                                <span>Invoice Manager</span>
+                            </div>
+                        </a>
+                    </li>
+    
+                    <li class="menu">
+                        <a href="#app2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><rect x="10" y="3" width="4" height="18"></rect><rect x="18" y="8" width="4" height="13"></rect><rect x="2" y="13" width="4" height="8"></rect></svg>
+                                <span>Inventory</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="app2" data-parent="#accordionExample">
+                                <li>
+                                    <a href="/inventory/0">iPhone </a>
+                                </li>
+                                <li>
+                                    <a href="/inventory/1">iWatch</a>
+                                </li>
+                                <li>
+                                    <a href="/inventory/2">Airpods</a>
+                                </li>
+                                <li>
+                                    <a href="/inventory/3">Qty History</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                   
+    
+                   
+    
+    
+    
+    
+                </ul>
+                
+            </nav>
+    
+        </div>
+        <!--  END SIDEBAR  -->
+
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            
+            <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing" style="overflow-x: hidden;">
+
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+                    <div class="widget widget-chart-one desk_flex" >
+                       
+                            <div class="inv-action width_80" >
+                                <div class="form-group mb-0" style="display: flex;">
+                                    <input id="rangeCalendarFlatpickr" class="form-control pick-a-date flatpickr flatpickr-input active" type="text" max="" placeholder="Select Date Range..">
+                                    <button id="filter-between" class="btn btn-primary">GO</button>
+                                </div>
+                                
+                            </div>  
+                         
+                            <!-- <div class="inv-action">
+                                <div class="">
+                                    <div id="select_menu" class="form-group " style="margin-bottom: 0;">
+                                        <select id="filter-by-time" class="custom-select" required>
+                                          <option value="all">Sort by &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; </option>
+                                          <option value="1">Last 24 Hours</option>
+                                          <option value="7">This Week</option>
+                                          <option value="30">This Month</option>
+                                          <option value="365">This Year</option>
+                                        </select>
+                                        <div class="valid-feedback"> valid </div>
+                                        <div class="invalid-feedback">
+                                            Please Select the field
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                           
+                        
+                    </div>
+
+            </div>        
+                <div class="widget-content widget-content-area br-6" style="overflow-x: hidden;">
+                    <div class="table-responsive mb-4 mt-4" style="overflow-x: hidden;">
+                        <div class="widget-header">
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                    <h4>Orders By Status</h4>
+                                </div>                 
+                            </div>
+                        </div>
+                        <table id="zero-config1" class="table table-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Total Orders placed </th>
+                                    <th>Total New Orders</th>
+                                    <th>Total Processing Orders</th>
+                                    <th>Total Completed Orders</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr>
+                                        <td><%=totalOrders%></td>
+                                        <td><%=totalOrders-oProcess-oRejected%></td>
+                                        <td><%=oProcess%></td>
+                                        <td><%=oRejected%></td>
+                                    </tr>
+                                </tbody>
+                            <!-- <tfoot>
+                                <tr>
+                                    <th>Storage</th>
+                                    <th>Color</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot> -->
+                        </table>
+                    </div>
+                    <div class="wrapper" style="align-items: center;">
+                    <canvas id="orderChart"width="76" height="76" style="align-items: center;"></canvas>
+                    </div>
+                </div>
+            </div>                
+            <br>
+            <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing" style="overflow-x: hidden;">
+                        
+                <div class="widget-content widget-content-area br-6" style="overflow-x: hidden;">
+                    <div class="table-responsive mb-4 mt-4" style="overflow-x: hidden;">
+                        <div class="widget-header">
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                    <h4>Orders By Date</h4>
+                                </div>                 
+                            </div>
+                        </div>
+                      
+                    </div>
+                    <canvas id="dateChart"></canvas>       
+                    <table id="zero-config1" class="table table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Date </th>
+                                <th>Total Count of Orders</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for( let key in oDate ) { %>
+                                <tr>
+                                    <td><%=key%></td>
+                                    <td><%=oDate[key]%></td>
+
+                                </tr>
+                            <% } %>
+                        </tbody>
+                        <!-- <tfoot>
+                            <tr>
+                                <th>Storage</th>
+                                <th>Color</th>
+                                <th>Price</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tfoot> -->
+                    </table>
+                </div>
+            </div>
+            
+            <br>
+        
+            </div>
+            <div class="footer-wrapper">
+                <div class="footer-section f-section-1">
+                    <p class="">Copyright © 2020 <a target="_blank" href="https://usarocks.biz">USA ROCKS</a>, All rights reserved.</p>
+                </div>
+                <div class="footer-section f-section-2">
+                    <p class="">Coded with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></p>
+                </div>
+            </div>
+        </div>
+        <!--  END CONTENT AREA  -->
+    </div>
+    <!-- END MAIN CONTAINER -->
+    
+    
+    
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="/bootstrap/js/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+    <script src="/assets/js/custom.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="/plugins/table/datatable/datatables.js"></script>
+    <script>
+
+        let dateChart = document.getElementById('dateChart').getContext('2d');
+
+        let orderChart = document.getElementById('orderChart').getContext('2d');
+
+        var randomColorGenerator = function () { 
+                return '#' + (Math.random().toString(16) + '0000000').slice(2, 8); 
+        };
+        function poolColors(a) {
+            var pool = [];
+            for(i = 0; i < a; i++) {
+                pool.push(randomColorGenerator());
+            }
+            return pool;
+        }
+
+            var myChart = new Chart(orderChart, {
+            type: 'pie',
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Orders by Status',
+                        }
+                    }
+            },
+            data: {
+                labels: ['Pending','Processing', 'Delivered'],
+                datasets: [{
+                    label: 'Order by Status',
+                    data: [`<%=totalOrders-oProcess-oRejected%>`, `<%=(oProcess)%>`, `<%=(oRejected)%>`],
+                    backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                    ],
+                    hoverOffset: 4
+
+                }]
+            }
+        });
+   
+      
+        var myChart = new Chart(dateChart, {
+            type: 'line',
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                    }]
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Orders by Date',
+                        }
+                    }
+            },
+            data: {
+                labels: `<%=Object.keys(oDate)%>`.split(','),
+                datasets: [{
+                    label: 'Order by Date',
+                    data: `<%=Object.values(oDate)%>`.split(','),
+                    borderWidth: 1,
+                    backgroundColor : '#00bcd4',
+                    borderColor: '#00bcd4',
+
+                }]
+            }
+        });
+    </script>
+    <script>
+        $('#zero-config').DataTable({
+            "oLanguage": {
+                "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
+                "sInfo": "Showing page _PAGE_ of _PAGES_",
+                "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                "sSearchPlaceholder": "Search...",
+               "sLengthMenu": "Results :  _MENU_",
+            },
+            "stripeClasses": [],
+            "lengthMenu": [7, 10, 20, 50],
+            "pageLength": 7 
+        });
+    </script>
+     <script>
+        // $("#success-btn").click(function () {
+        $("div.flash2").delay(1500).fadeOut(400);
+        // });
+        // $("#failure-btn").click(function () {
+        $("div.flash").delay(1500).fadeOut(400);
+        // });
+    </script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+</body>
+
+<!-- Mirrored from designreset.com/cork/ltr/demo4/table_dt_basic.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Jul 2020 07:23:40 GMT -->
+</html>

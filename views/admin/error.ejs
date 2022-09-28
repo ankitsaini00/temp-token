@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from designreset.com/cork/ltr/demo4/pages_error503.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Jul 2020 07:24:18 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>MARVANS ADMIN </title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/pages/error/style-503.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <style>
+        .flash,
+        .flash2 {
+            background-color: rgb(236, 0, 0);
+            border-radius: 5px;
+            padding: 20px 30px;
+            left: 30%;
+            right: 30%;
+            position: fixed;
+            top: 3px;
+            z-index: 15;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .flash .close1,
+        .flash2 .close1 {
+            float: right;
+            color: white;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .innerflash {
+            display: flex;
+            align-items: center;
+        }
+
+        .flash .i,
+        .flash2 .i {
+            font-size: 2rem;
+            color: white;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .flash2 {
+            background-color: rgb(0, 172, 0);
+        }
+
+        @media screen and (max-width: 900px) {
+
+            .flash,
+            .flash2 {
+                font-size: 0.9rem;
+                padding: 12px 25px;
+                margin: 3px;
+                left: 0;
+                right: 0;
+            }
+
+            .flash .i,
+            .flash2 .i {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+
+</head>
+<body class="error503 text-center">
+    <%if(success&&success.length>0){%>
+        <div class="flash2">
+            <div class="innerflash">
+                <i class="fas fa-check-double i"></i>
+                <%=success%>
+            </div>
+        </div>
+    <%}else if(error&&error.length>0){%>
+        <div class="flash blink">
+            <div class="innerflash">
+                <i class="fas fa-times i"></i>
+                <%=error%>
+            </div>
+        </div>
+    <%}%>   
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 mr-auto mt-5 text-md-left text-center">
+                <a href="#" class="ml-md-5">
+                    <img alt="image-503" src="/assets/img/1logo.png" class="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid error-content">
+        <div class="">
+            <h1 class="error-number">503</h1>
+            <p class="mini-text">Ooops!</p>
+            <p class="error-text">Service Unavailable!</p>
+            <a href="/" class="btn btn-secondary mt-5">Go Back</a>
+        </div>
+    </div>
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="/bootstrap/js/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+        // $("#success-btn").click(function () {
+        $("div.flash2").delay(1500).fadeOut(400);
+        // });
+        // $("#failure-btn").click(function () {
+        $("div.flash").delay(1500).fadeOut(400);
+        // });
+    </script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+</body>
+
+<!-- Mirrored from designreset.com/cork/ltr/demo4/pages_error503.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Jul 2020 07:24:18 GMT -->
+</html>
